@@ -61,9 +61,15 @@ const routes: Routes = [
 ];
 ----
 
-If we visited `/blog/moo` we would show `MooComponent` even though it matches the path for the first `blog/:id` route as well.
+(non parameterised routes do not take precedence over parameterised routes. this is only possible if routes array item position are interchanged  
+ const routes: Routes = [
+  { path: 'blog/moo', component: MooComponent },
+  { path: 'blog/:id', component: BlogComponent },
+];
+)
+If we visited `/blog/moo` we would show `MooComponent`.
 
-IMPORTANT: Non-parameterised routes take precedence over parameterised routes.
+
 
 == Activated Route
 
